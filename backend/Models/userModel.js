@@ -6,15 +6,15 @@ function caps(word) {
 }
 
 const medicineSchema = new mongoose.Schema({
-  tablets: [{ type: 'string' }],
+  tablets: [{ type: String }],
   doctor_id: {
-    type: 'string',
+    type: String,
     required: [true, 'Doctor should advice patient'],
   },
-  date: { type: 'date', required: [true, 'Date should be there'] },
-  reason: [{ type: 'string', required: [true, 'Reason should be there'] }],
+  date: { type: Date, required: [true, 'Date should be there'] },
+  reason: [{ type: String, required: [true, 'Reason should be there'] }],
   bill: {
-    type: 'string',
+    type: String,
     default: 200,
   },
 });
@@ -23,26 +23,26 @@ const userSchema = new mongoose.Schema(
     fName: String,
     lName: String,
     email: {
-      type: 'string',
+      type: String,
       trim: true,
       unique: true,
       required: ['true', 'PLease enter you name'],
       validate: [validator.isEmail, 'Please provide  a valid email'],
     },
     phoneNumber: {
-      type: 'Number',
+      type: Number,
       required: [true, 'Please provide a valid phone number'],
       maxlength: 10,
       minlength: 10,
     },
     password: {
-      type: 'string',
+      type: String,
       required: [true, 'Please enter you password'],
       minlength: 8,
       select: false,
     },
     role: {
-      type: 'string',
+      type: String,
       default: 'patient',
     },
     photo: String,
@@ -52,13 +52,13 @@ const userSchema = new mongoose.Schema(
     active: { type: Boolean, default: true, select: false },
     address: [
       {
-        type: 'string',
+        type: String,
         required: [true, 'Please enter the address'],
       },
     ],
     foodAddress: [
       {
-        type: 'string',
+        type: String,
         required: [true, 'Please enter the address'],
       },
     ],
@@ -67,9 +67,9 @@ const userSchema = new mongoose.Schema(
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 
-userSchema.virtual('name').get(function () {
-  return `${caps(this.fName)} ${caps(this.lName)}`;
-});
+// userSchema.virtual('name').get(function () {
+//   return `${caps(this.fName)} ${caps(this.lName)}`;
+// });
 
 userSchema.pre('save', async function (next) {
   this.password = await bcrypt.hash(this.password, 12);
@@ -80,10 +80,10 @@ userSchema.pre('/^find/', async function (next) {
   next();
 });
 userSchema.methods.correctPassword = async function (
-  userPassword,
-  givenPassword
+  candidatepassword,
+  userPassword
 ) {
-  return await bcrypt.compare(userPassword, givenPassword);
+  return await bcrypt.compare(candidatepassword, userPassword);
 };
 const User = mongoose.model('User', userSchema);
 module.exports = User;

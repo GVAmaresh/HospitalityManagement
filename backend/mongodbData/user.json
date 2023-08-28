@@ -1,0 +1,68 @@
+[
+  {
+    "fName": "John",
+    "lName": "Doe",
+    "email": "john@example.com",
+    "phoneNumber": 1234567890,
+    "password": "password123",
+    "role": "patient",
+    "photo": "profile.jpg",
+    "address": ["123 Main St", "Apt 4B", "City, State"],
+    "foodAddress": ["456 Food St", "Unit 7", "City, State"],
+    "treatment": [
+      {
+        "tablets": ["Tablet A", "Tablet B"],
+        "doctor_id": "doctor123",
+        "date": "2023-08-27T00:00:00Z",
+        "reason": ["Fever", "Headache"],
+        "bill": "200"
+      }
+    ]
+  },
+  {
+    "fName": "Jane",
+    "lName": "Smith",
+    "email": "jane@example.com",
+    "phoneNumber": 9876543210,
+    "password": "test1234",
+    "role": "doctor",
+    "photo": "doctor.jpg",
+    "address": ["789 Oak St", "Suite 12", "City, State"],
+    "foodAddress": ["123 Food St", "Unit 5", "City, State"],
+    "treatment": []
+  },
+  {
+    "fName": "Alice",
+    "lName": "Johnson",
+    "email": "alice@example.com",
+    "phoneNumber": 5555555555,
+    "password": "test1234",
+    "role": "patient",
+    "photo": "alice.jpg",
+    "address": ["456 Elm St", "Apt 3C", "City, State"],
+    "foodAddress": ["789 Food St", "Unit 8", "City, State"],
+    "treatment": []
+  },
+
+  {
+    "fName": "Michael",
+    "lName": "Brown",
+    "email": "michael@example.com",
+    "phoneNumber": 987654321,
+    "password": "test1234",
+    "role": "patient",
+    "photo": "michael.jpg",
+    "address": ["789 Pine St", "Apt 9A", "City, State"],
+    "foodAddress": ["1231 Food St", "Unit 2", "City, State"],
+    "treatment": [
+      {
+        "tablets": ["Tablet C", "Tablet D"],
+        "doctor_id": "doctor456",
+        "date": "2023-08-28T00:00:00Z",
+        "reason": ["Cold", "Cough"],
+        "bill": "150"
+      }
+    ]
+  }
+
+]

@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const User = require('././Models/userModel')
+const User = require('../Models/userModel')
 
-export const createUser = async(req, res)=>{
+exports.createUser = async(req, res)=>{
 	const user = await User.create(req.body)
 
 	res.status(201).json({
